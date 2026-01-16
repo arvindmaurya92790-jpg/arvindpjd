@@ -2,145 +2,140 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Dynamic Login Form</title>
+<title>Pro Gaming Showcase</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
-
 body{
+    background:#0b0f1a;
+    color:white;
+}
+
+/* MAIN LAYOUT */
+.container{
+    display:flex;
     height:100vh;
-    background:url("https://images.unsplash.com/photo-1519681393784-d120267933ba") no-repeat center;
-    background-size:cover;
-    display:flex;
-    align-items:center;
-    justify-content:center;
 }
 
-/* LOGIN CARD */
-.login-box{
-    width:360px;
-    padding:35px;
-    border-radius:16px;
-    background:rgba(255,255,255,0.15);
-    backdrop-filter: blur(15px);
-    box-shadow:0 0 40px rgba(0,0,0,0.4);
-    text-align:center;
-    color:white;
-    animation: pop 1s ease;
+/* LEFT AUTO SCROLL */
+.left-scroll{
+    width:35%;
+    overflow:hidden;
+    position:relative;
+    background:#000;
 }
 
-@keyframes pop{
-    from{
-        transform: scale(0.8);
-        opacity:0;
-    }
-    to{
-        transform: scale(1);
-        opacity:1;
-    }
-}
-
-.login-box h2{
-    margin-bottom:25px;
-    font-size:26px;
-}
-
-/* INPUTS */
-.login-box input{
+.scroll-track{
+    position:absolute;
     width:100%;
-    padding:12px;
-    margin-bottom:15px;
-    border-radius:10px;
-    border:1px solid rgba(255,255,255,0.4);
-    outline:none;
-    background:rgba(0,0,0,0.4);
-    color:white;
-    font-size:14px;
+    animation: scrollUp 20s linear infinite;
 }
 
-/* OPTIONS */
-.options{
-    display:flex;
-    justify-content:space-between;
-    font-size:13px;
-    margin-bottom:20px;
-}
-
-.options a{
-    text-decoration:none;
-    color:#00ccff;
-}
-
-/* BUTTON */
-button{
+.scroll-track img{
     width:100%;
-    padding:12px;
-    background:white;
-    border:none;
-    border-radius:12px;
-    color:black;
-    font-size:15px;
-    cursor:pointer;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+/* AUTO SCROLL ANIMATION */
+@keyframes scrollUp{
+    0%{top:0;}
+    100%{top:-100%;}
+}
+
+/* RIGHT CONTENT */
+.right-content{
+    width:65%;
+    padding:60px;
+}
+
+.right-content h1{
+    font-size:48px;
+    color:#00f7ff;
+}
+
+.topics{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.topic-box{
+    background:#141c33;
+    padding:25px;
+    border-radius:15px;
     transition:0.3s;
-    font-weight:bold;
+}
+.topic-box:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px #00f7ff;
 }
 
-button:hover{
-    background:#ddd;
-}
-
-/* REGISTER */
-.register{
-    margin-top:15px;
-    font-size:13px;
-}
-
-.register a{
-    color:#00ccff;
-    text-decoration:none;
+.topic-box h3{
+    color:#00f7ff;
+    margin-bottom:10px;
 }
 </style>
-
 </head>
+
 <body>
 
-<div class="login-box">
-    <h2>Login</h2>
+<div class="container">
 
-    <input type="text" id="user" placeholder="username">
-    <input type="password" id="pass" placeholder="password">
-
-    <div class="options">
-        <label>
-            <input type="checkbox"> Remember Me
-        </label>
-        <a href="#">Forgot password?</a>
-    </div>
-
-    <button onclick="login()">Log in</button>
-
-    <div class="register">
-        Don’t have an account? <a href="#">Register Here!</a>
+<!-- LEFT AUTO SCROLL IMAGES -->
+<div class="left-scroll">
+    <div class="scroll-track">
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e">
+        <img src="https://images.unsplash.com/photo-1611996575749-79a3a250f948">
+        <img src="https://images.unsplash.com/photo-1611605698323-b1e99cfd37ea">
+        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420">
+        <img src="https://images.unsplash.com/photo-1605902711622-cfb43c44367f">
+        <img src="https://images.unsplash.com/photo-1598550481911-81b9dbf2db5a">
     </div>
 </div>
 
-<script>
-function login(){
-    let user = document.getElementById("user").value;
-    let pass = document.getElementById("pass").value;
+<!-- RIGHT CONTENT -->
+<div class="right-content">
+    <h1>Elite Gaming Hub</h1>
+    <p>Next-gen esports platform for competitive gamers.</p>
 
-    if(user === "" || pass === ""){
-        alert("Please fill all fields!");
-    }else{
-        alert("Login Successful ✅");
-    }
-}
-</script>
+    <div class="topics">
+        <div class="topic-box">
+            <h3>🎮 BGMI Esports</h3>
+            <p>Pro level battle royale tournaments.</p>
+        </div>
+        <div class="topic-box">
+            <h3>🔥 Valorant</h3>
+            <p>Strategic FPS competitive gameplay.</p>
+        </div>
+        <div class="topic-box">
+            <h3>⚡ Apex Legends</h3>
+            <p>Fast-paced hero shooter action.</p>
+        </div>
+        <div class="topic-box">
+            <h3>🏆 Tournaments</h3>
+            <p>Daily & weekly cash prize events.</p>
+        </div>
+        <div class="topic-box">
+            <h3>👥 Gaming Community</h3>
+            <p>Connect with elite gamers worldwide.</p>
+        </div>
+        <div class="topic-box">
+            <h3>📺 Live Streams</h3>
+            <p>Watch pro players live.</p>
+        </div>
+    </div>
+</div>
+
+</div>
 
 </body>
 </html>
